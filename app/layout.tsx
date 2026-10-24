@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     'Book your Skopje Airport taxi online. Fixed prices to Skopje city center, Ohrid, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
     metadataBase: new URL('https://www.skopjetaxiairport.com'),
   openGraph: {
-    title: 'Skopje Taxi Airport - Private Airport Transfers',
-    description: 'Fixed prices, English-speaking drivers, 24/7 service.',
+    title: 'Skopje Airport Taxi & Transfers | Fixed Prices 24/7',
+    description: 'Book your Skopje Airport taxi online. Fixed prices to Skopje city center, Ohrid, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
     url: '/',
     siteName: 'Skopje Taxi Airport',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
