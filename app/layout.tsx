@@ -24,6 +24,20 @@ export const metadata: Metadata = {
   title: 'Skopje Airport Taxi & Private Transfers | Book Online 24/7',
   description:
     'Reliable private Skopje Airport taxi and transfers to the city and destinations across Macedonia & beyond. Fixed prices, professional English-speaking drivers, free flight tracking, 24/7 service.',
+    metadataBase: new URL('https://www.skopjetaxiairport.com'),
+  openGraph: {
+    title: 'Skopje Taxi Airport - Private Airport Transfers',
+    description: 'Fixed prices, English-speaking drivers, 24/7 service.',
+    url: '/',
+    siteName: 'Skopje Taxi Airport',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.png'],
+  },
+}
   keywords: [
     'Skopje airport taxi',
     'Skopje airport transfer',
