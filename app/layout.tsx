@@ -21,9 +21,9 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: 'Skopje Airport Taxi & Private Transfers | Book Online 24/7',
+  title: 'Skopje Airport Taxi & Transfers | Fixed Prices 24/7',
   description:
-    'Reliable private Skopje Airport taxi and transfers to the city and destinations across Macedonia & beyond. Fixed prices, professional English-speaking drivers, free flight tracking, 24/7 service.',
+    'Book your Skopje Airport taxi online. Fixed prices to Skopje city center, Ohrid, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
     metadataBase: new URL('https://www.skopjetaxiairport.com'),
   openGraph: {
     title: 'Skopje Taxi Airport - Private Airport Transfers',
