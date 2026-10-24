@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     description: 'Book your Skopje Airport taxi online. Fixed prices to Skopje city center, Ohrid, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
     url: '/',
     siteName: 'Skopje Taxi Airport',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image-v2.png', width: 1024, height: 1024 }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image.png'],
+    images: ['/og-image-v2.png'],
   },
   keywords: [
     'Skopje airport taxi',
