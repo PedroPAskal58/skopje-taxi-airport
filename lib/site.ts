@@ -1,7 +1,7 @@
 export const site = {
   name: 'Skopje Airport Taxi',
   // Your live domain. Google uses this for the sitemap and search listings.
-  url: 'https://skopjeairport.mk',
+  url: 'https://www.skopjetaxiairport.com',
   email: 'skopjetaxiairport@gmail.com',
   phoneDisplay: '+389 78 968 744',
   phoneHref: 'tel:+38978968744',
