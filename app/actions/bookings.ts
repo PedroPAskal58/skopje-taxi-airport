@@ -9,6 +9,7 @@ import { expireStaleWhatsAppBookings } from '@/lib/db/expire-whatsapp'
 import { getPickupTimestamp } from '@/lib/booking-time'
 import { validateBookingDetails, type BookingRecord } from '@/lib/booking-validation'
 import { tourList, transfers, vehicles } from '@/lib/site'
+import { notifyNewBooking } from '@/lib/telegram'
 
 const COOKIE = 'sat-guest-bookings'
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
@@ -87,6 +88,7 @@ export async function createBooking(input: unknown) {
       if (retry) return { booking: serialize(retry) }
       return { error: 'Request could not be saved. Please reload and try again.' }
     }
+    await notifyNewBooking(row)
     return { booking: serialize(row) }
   } catch { return { error: 'We could not save your request. Please try again; no confirmation has been issued.' } }
 }
