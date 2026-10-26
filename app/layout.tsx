@@ -1,29 +1,25 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Manrope, Fraunces } from 'next/font/google'
+import { PriceNoticeDialog } from '@/components/price-notice-dialog'
+import { ScrollReveal } from '@/components/scroll-reveal'
+import { LeafCelebration } from '@/components/leaf-celebration'
+import { site } from '@/lib/site'
 import './globals.css'
 
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  display: 'swap',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-=======
   metadataBase: new URL(site.url),
   title: 'Skopje Airport Taxi & Transfers | Fixed Prices 24/7',
   description:
@@ -53,16 +49,12 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.png',
     apple: '/icon.png',
->>>>>>> 04edc908ff119e7df020a5e4dcd47874657cba5b
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#1b2a4a',
 }
 
 export default function RootLayout({
@@ -71,9 +63,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" suppressHydrationWarning className={`light bg-background ${manrope.variable} ${fraunces.variable}`}>
+      <body className="antialiased font-sans">
         {children}
+        <PriceNoticeDialog />
+        <ScrollReveal />
+        <LeafCelebration />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
