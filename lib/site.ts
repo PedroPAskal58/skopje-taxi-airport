@@ -11,7 +11,7 @@ export const site = {
   reviewCount: 67,
   // Google review link. Replace PLACE_ID with your Google Business Profile place ID
   // so this opens the "write a review" dialog directly on your listing.
-  googleReviewUrl: 'https://search.google.com/local/writereview?placeid=PLACE_ID',
+  googleReviewUrl: 'https://g.page/r/CU8BIX2UQFVhEAI/review',
 }
 
 export const nav = [
