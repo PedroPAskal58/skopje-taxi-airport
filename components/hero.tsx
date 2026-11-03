@@ -64,13 +64,13 @@ export function Hero() {
               id="hero-title"
               className="mt-6 font-serif text-5xl font-normal leading-[0.95] tracking-tight [filter:drop-shadow(0_2px_12px_rgb(0_0_0/0.5))] sm:text-6xl lg:text-7xl"
             >
-  <span className="block text-balance">Your journey.</span>
-  <span className="mt-2 block italic text-gold-gradient">Our home.</span>
+  <span className="block text-balance">Skopje Airport Taxi</span>
+  <span className="mt-2 block italic text-gold-gradient">& Private Transfers</span>
             </h1>
 
             <p className="mt-7 max-w-md text-pretty text-lg leading-relaxed text-foreground/85">
-              Private transfers. Unforgettable day trips. Discover North Macedonia with people who
-              call it home.
+              Fixed-price taxi from Skopje International Airport (SKP) to the city center, Ohrid,
+              Pristina and Thessaloniki. 24/7, English-speaking local drivers.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
