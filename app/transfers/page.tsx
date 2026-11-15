@@ -22,7 +22,7 @@ const PAGE_PATH = '/transfers'
 export const metadata: Metadata = pageMetadata({
   title: 'Skopje Airport Transfers & Prices – Skopje to Ohrid €140',
   description:
-    'Fixed-price private transfers from Skopje Airport: Skopje city €30, Skopje to Ohrid €140, Pristina, Thessaloniki, Sofia and more. Price per car, 24/7.',
+    'Fixed-price private transfers from Skopje Airport: Skopje city €25, Skopje to Ohrid €140, Pristina, Thessaloniki, Sofia and more. Price per car, 24/7.',
   path: PAGE_PATH,
   image: { url: transfersHeroImage, alt: 'Private transfer car waiting outside Skopje International Airport' },
 })

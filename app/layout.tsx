@@ -20,7 +20,7 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: 'Skopje Airport Taxi & Transfers | Skopje to Ohrid €140 Fixed Price',
+  title: 'Skopje Airport Taxi & Private Transfers €25 | 24/7 Fixed Price, Meet & Greet',
   description:
     'Book your Skopje Airport taxi online. Skopje to Ohrid €140, fixed prices to Skopje city center, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
   applicationName: site.name,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   openGraph: {
-    title: 'Skopje Airport Taxi & Transfers | Skopje to Ohrid €140 Fixed Price',
+    title: 'Skopje Airport Taxi & Private Transfers €25 | 24/7 Fixed Price, Meet & Greet',
     description: 'Book your Skopje Airport taxi online. Skopje to Ohrid €140, fixed prices to Skopje city center, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
     url: '/',
     siteName: site.name,

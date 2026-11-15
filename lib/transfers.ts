@@ -30,7 +30,7 @@ export const transfers: Transfer[] = [
     route: 'Skopje Airport – Skopje City',
     from: 'Skopje Airport',
     to: 'Skopje City',
-    price: 30,
+    price: 25,
     distance: '21 km',
     duration: '20–30 min',
     tag: 'Meet & greet',

@@ -17,9 +17,9 @@ import { pageMetadata } from '@/lib/seo'
 import { socialUrls } from '@/components/social-links'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Skopje Airport Taxi & Transfers | Skopje to Ohrid €140 Fixed Price',
+  title: 'Skopje Airport Taxi & Private Transfers €25 | 24/7 Fixed Price, Meet & Greet',
   description:
-    'Private taxi from Skopje Airport. Skopje to Ohrid €140, Skopje city €30, Pristina €100, Thessaloniki €185. Fixed price per car, English-speaking drivers, 24/7.',
+    'Private taxi from Skopje Airport. Skopje to Ohrid €140, Skopje city €25, Pristina €100, Thessaloniki €185. Fixed price per car, English-speaking drivers, 24/7.',
   path: '/',
 })
 const businessInfo = {
