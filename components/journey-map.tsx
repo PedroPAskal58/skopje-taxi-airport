@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
 const RouteMap = dynamic(() => import('@/components/route-map'), {
   ssr: false,
   loading: () => (
-    <div className="grid size-full place-items-center bg-[#111318] text-sm text-muted-foreground">
+    <div className="grid size-full place-items-center bg-secondary text-sm text-muted-foreground">
       Loading map…
     </div>
   ),

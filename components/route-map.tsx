@@ -20,7 +20,7 @@ type RouteMapProps = {
 }
 
 const FLY_DURATION = 0.9
-const ROUTE_COLOR = '#f5c542'
+const ROUTE_COLOR = '#1f66d1'
 const FIT_OPTIONS = { padding: [56, 56] as [number, number], maxZoom: 12 }
 
 function FitToRoute({ path }: { path: LatLng[] }) {
@@ -42,7 +42,7 @@ function MapControls({ path }: { path: LatLng[] }) {
   }, [])
 
   const buttonClass =
-    'grid size-9 place-items-center text-white/85 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#f5c542]'
+    'grid size-9 place-items-center text-foreground/80 transition hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold'
 
   return (
     <div className="leaflet-top leaflet-right">
@@ -113,8 +113,8 @@ function CityLabels({ stops }: { stops: RouteStop[] }) {
   )
 }
 
-const planeGlyph = `<path transform="translate(6.5 4.2) scale(0.46)" d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" fill="#14171f" stroke="#14171f" stroke-width="1.2" stroke-linejoin="round"/>`
-const dotGlyph = `<circle cx="12" cy="9.6" r="3.2" fill="#14171f"/>`
+const planeGlyph = `<path transform="translate(6.5 4.2) scale(0.46)" d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>`
+const dotGlyph = `<circle cx="12" cy="9.6" r="3.2" fill="#ffffff"/>`
 
 function pinIcon(name: string, isAirport: boolean) {
   return L.divIcon({
@@ -246,7 +246,7 @@ export default function RouteMap({ stops, path, isExact, mode, replayKey }: Rout
       <CityLabels stops={stops} />
       <Polyline
         positions={path}
-        pathOptions={{ color: ROUTE_COLOR, weight: 12, opacity: 0.12, lineCap: 'round', lineJoin: 'round' }}
+        pathOptions={{ color: ROUTE_COLOR, weight: 12, opacity: 0.14, lineCap: 'round', lineJoin: 'round' }}
         interactive={false}
       />
       {mode === 'drive' ? (
@@ -273,7 +273,7 @@ export default function RouteMap({ stops, path, isExact, mode, replayKey }: Rout
             key={stop.name}
             center={stop.position}
             radius={5}
-            pathOptions={{ color: '#14171f', weight: 2, fillColor: ROUTE_COLOR, fillOpacity: 1 }}
+            pathOptions={{ color: '#ffffff', weight: 2, fillColor: ROUTE_COLOR, fillOpacity: 1 }}
           >
             <Tooltip direction="right" offset={[8, 0]} className="route-tooltip">
               {stop.name}

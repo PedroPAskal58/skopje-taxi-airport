@@ -25,7 +25,7 @@ export function PlaneIntro({ onDone }: { onDone: () => void }) {
         <div className="absolute left-[46%] top-0 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
           <Plane
             strokeWidth={1.25}
-            className="size-40 -rotate-45 fill-gold text-gold drop-shadow-[0_20px_40px_rgb(0_0_0/0.6)] md:size-64"
+            className="size-40 -rotate-45 fill-gold text-gold drop-shadow-[0_20px_40px_rgb(30_45_80/0.3)] md:size-64"
           />
           <div className="-mt-10 flex gap-10 md:-mt-16 md:gap-16">
             <span className="plane-trail block h-[45vh] w-1 md:w-1.5" />

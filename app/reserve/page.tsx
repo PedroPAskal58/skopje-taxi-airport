@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { ReserveForm } from '@/components/reserve-form'
 import { tours, vehicles, type TourSlug, type VehicleSlug } from '@/lib/site'
 import { getTransfer } from '@/lib/transfers'
 
-export const metadata: Metadata = {
-  title: 'Reserve Your Vehicle | Skopje Airport Taxi',
+export const metadata: Metadata = pageMetadata({
+  title: 'Reserve a Private Transfer | Skopje Airport Taxi',
   description:
-    'Reserve your private transfer or day tour. Send your trip details and we confirm availability and your fixed price.',
-}
+    'Reserve your private transfer or day tour from Skopje. Send your trip details and we confirm availability and your fixed price.',
+  path: '/reserve',
+})
 
 export default async function ReservePage({
   searchParams,

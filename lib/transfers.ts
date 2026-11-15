@@ -1,3 +1,5 @@
+import { skiTransfers } from '@/lib/ski-transfers'
+
 export type RouteStep = {
   title: string
   text: string
@@ -32,7 +34,7 @@ export const transfers: Transfer[] = [
     distance: '21 km',
     duration: '20–30 min',
     tag: 'Meet & greet',
-    image: '/images/transfer-airport.png',
+    image: '/images/transfer-airport.webp',
     alt: 'Black Ford Mondeo waiting outside the departures entrance of Skopje International Airport at dusk',
     description:
       'Land, walk out and find your driver holding a sign with your name. We watch your flight, so an early or late landing never costs you extra.',
@@ -69,7 +71,7 @@ export const transfers: Transfer[] = [
     distance: '~90 km',
     duration: '~1h 30m',
     tag: 'Border crossing',
-    image: '/images/transfer-pristina.png',
+    image: '/images/transfer-pristina.webp',
     alt: 'Mother Teresa Boulevard in central Pristina at golden hour',
     description:
       'A short, easy hop across the border to Kosovo. Door to door in about an hour and a half, with a driver who does this crossing all the time.',
@@ -106,7 +108,7 @@ export const transfers: Transfer[] = [
     distance: '~170 km',
     duration: '~2h',
     tag: 'Domestic',
-    image: '/images/transfer-bitola.png',
+    image: '/images/transfer-bitola.webp',
     alt: 'Colourful old facades along Shirok Sokak street in Bitola',
     description:
       'Head south to Bitola, the city of consuls, cafes and old-world charm. A comfortable two-hour ride with no changes and no waiting at stations.',
@@ -143,7 +145,7 @@ export const transfers: Transfer[] = [
     distance: '~170 km',
     duration: '~2h 30m',
     tag: 'Most popular',
-    image: '/images/tour-ohrid.png',
+    image: '/images/tour-ohrid.webp',
     alt: 'Church of St. John at Kaneo above the blue water of Lake Ohrid',
     description:
       'Our guests book this ride more than any other. Leave Skopje behind and be sitting by the clear water of Lake Ohrid in about two and a half hours.',
@@ -180,7 +182,7 @@ export const transfers: Transfer[] = [
     distance: '~240 km',
     duration: '~3h 30m',
     tag: 'Border crossing',
-    image: '/images/transfer-sofia.png',
+    image: '/images/transfer-sofia.webp',
     alt: 'Golden domes of Alexander Nevsky Cathedral in Sofia with Vitosha behind',
     description:
       'Reach the Bulgarian capital without juggling bus times or connections. We take you from your door in Skopje to your hotel or flight in Sofia.',
@@ -217,7 +219,7 @@ export const transfers: Transfer[] = [
     distance: '~230 km',
     duration: '~3h',
     tag: 'Border crossing',
-    image: '/images/transfer-thessaloniki.png',
+    image: '/images/transfer-thessaloniki.webp',
     alt: 'White Tower on the seafront promenade of Thessaloniki at sunset',
     description:
       'From the mountains to the Aegean in about three hours. Perfect for catching a flight from Thessaloniki or starting a summer beach holiday.',
@@ -254,7 +256,7 @@ export const transfers: Transfer[] = [
     distance: '~290 km',
     duration: '~3h 30m',
     tag: 'Border crossing',
-    image: '/images/transfer-tirana.png',
+    image: '/images/transfer-tirana.webp',
     alt: 'Skanderbeg Square in central Tirana with mountains in the distance',
     description:
       'A beautiful mountain journey to the heart of Albania. Sit back and enjoy the views while we handle the road, the border and the city traffic.',
@@ -291,7 +293,7 @@ export const transfers: Transfer[] = [
     distance: '~430 km',
     duration: '~5h',
     tag: 'Border crossing',
-    image: '/images/transfer-belgrade.png',
+    image: '/images/transfer-belgrade.webp',
     alt: 'Kalemegdan fortress above the meeting of the Sava and Danube rivers in Belgrade',
     description:
       'Our longest regular route, made easy. A private car all the way to Belgrade, with breaks whenever you want them and one clear price up front.',
@@ -328,7 +330,7 @@ export const transfers: Transfer[] = [
     distance: '~40 km',
     duration: '~45 min',
     tag: 'Meet & greet',
-    image: '/images/tour-matka.png',
+    image: '/images/tour-matka.webp',
     alt: 'Emerald water of Matka Canyon between steep limestone cliffs',
     description:
       'Go straight from your flight to the emerald water of Matka Canyon. Your driver meets you at arrivals and takes you right to the lake.',
@@ -365,7 +367,7 @@ export const transfers: Transfer[] = [
     distance: '~170 km',
     duration: '~2h 30m',
     tag: 'Domestic',
-    image: '/images/transfer-skopje.png',
+    image: '/images/transfer-skopje.webp',
     alt: 'Stone Bridge over the Vardar river in Skopje with the fortress behind',
     description:
       'Heading back from the lake? We pick you up at your hotel in Ohrid and take you to any address in Skopje or straight to Skopje Airport.',
@@ -402,7 +404,7 @@ export const transfers: Transfer[] = [
     distance: '~60 km',
     duration: '~1h',
     tag: 'Border crossing',
-    image: '/images/transfer-ferizaj.png',
+    image: '/images/transfer-ferizaj.webp',
     alt: 'Mosque and Orthodox church side by side in the centre of Ferizaj',
     description:
       'The quickest crossing into Kosovo. About an hour from Skopje to Ferizaj, door to door, with a driver who knows the border well.',
@@ -439,7 +441,7 @@ export const transfers: Transfer[] = [
     distance: '~200 km',
     duration: '~2h 30m',
     tag: 'Border crossing',
-    image: '/images/transfer-nis.png',
+    image: '/images/transfer-nis.webp',
     alt: 'Stone gate of Niš Fortress beside the Nišava river',
     description:
       'A smooth motorway ride north to Niš, ideal for catching a low-cost flight from Niš Airport or exploring southern Serbia.',
@@ -476,7 +478,7 @@ export const transfers: Transfer[] = [
     distance: '~730 km',
     duration: '~7h 30m',
     tag: 'Border crossing',
-    image: '/images/transfer-athens.png',
+    image: '/images/transfer-athens.webp',
     alt: 'The Acropolis above Athens at sunset',
     description:
       'All the way to the Greek capital in one private car. Long distance, made comfortable, with breaks whenever you need them.',
@@ -513,7 +515,7 @@ export const transfers: Transfer[] = [
     distance: '~380 km',
     duration: '~6h',
     tag: 'Border crossing',
-    image: '/images/transfer-podgorica.png',
+    image: '/images/transfer-podgorica.webp',
     alt: 'Millennium Bridge over the Morača river in Podgorica',
     description:
       'A scenic mountain journey to the capital of Montenegro, with no connections and a driver who handles every border along the way.',
@@ -560,6 +562,8 @@ export function hasLockedAirportPickup(transfer?: Pick<Transfer, 'from'>) {
   return transfer?.from === 'Skopje Airport'
 }
 
+export const allTransfers: Transfer[] = [...transfers, ...skiTransfers]
+
 export function getTransfer(slug: string) {
-  return transfers.find((transfer) => transfer.slug === slug)
+  return allTransfers.find((transfer) => transfer.slug === slug)
 }

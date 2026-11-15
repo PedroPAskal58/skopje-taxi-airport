@@ -22,7 +22,7 @@ import {
   ArrowLeftRight,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { site, vehicles, tourList, transfers, type VehicleSlug } from '@/lib/site'
+import { site, vehicles, tourList, allTransfers as transfers, type VehicleSlug } from '@/lib/site'
 import { buildCustomerMessage } from '@/lib/whatsapp-message'
 import { saveBooking } from '@/lib/booking-memory'
 import { BookingCountdownPreview } from '@/components/booking-countdown-preview'
@@ -36,9 +36,9 @@ import {
 } from '@/lib/transfers'
 
 const vehicleImages: Record<VehicleSlug, string> = {
-  mondeo: '/images/fleet-mondeo.png',
-  kia: '/images/fleet-kia.png',
-  van: '/images/fleet-van.png',
+  mondeo: '/images/fleet-mondeo.webp',
+  kia: '/images/fleet-kia.webp',
+  van: '/images/fleet-van.webp',
 }
 
 const vehicleOrder: VehicleSlug[] = ['mondeo', 'kia', 'van']

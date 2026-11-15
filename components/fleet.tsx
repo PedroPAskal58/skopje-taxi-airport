@@ -21,7 +21,7 @@ const fleet: Car[] = [
     type: 'Executive Comfort Sedan',
     seats: 'Up to 4 passengers',
     luggage: '3 large bags',
-    image: '/images/fleet-mondeo.png',
+    image: '/images/fleet-mondeo.webp',
     alt: 'White Ford Mondeo 2018 executive comfort sedan',
     perks: [
       'Spacious leather interior with extra legroom',
@@ -36,7 +36,7 @@ const fleet: Car[] = [
     type: 'Comfort SUV',
     seats: 'Up to 4 passengers',
     luggage: '3 large bags',
-    image: '/images/fleet-kia.png',
+    image: '/images/fleet-kia.webp',
     alt: 'Black Kia Sportage 2017 comfort SUV',
     perks: [
       'Elevated SUV ride with a smooth, quiet cabin',
@@ -51,7 +51,7 @@ const fleet: Car[] = [
     type: 'Group & Family Van',
     seats: 'Up to 4 passengers',
     luggage: '6 bags',
-    image: '/images/fleet-van.png',
+    image: '/images/fleet-van.webp',
     alt: 'White compact passenger van',
     perks: [
       'Comfortable seating for up to 4 passengers',
@@ -68,15 +68,15 @@ const includedForEveryRide = [
   'Air conditioning & spotless interior',
 ]
 
-export function Fleet() {
+export function Fleet({ headingLevel: Heading = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
   return (
     <section id="fleet" className="relative border-y border-border bg-secondary/40">
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">The fleet</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold text-foreground md:text-4xl">
+          <Heading className="mt-3 font-serif text-3xl font-semibold text-foreground md:text-4xl">
             Travel in Quiet Luxury
-          </h2>
+          </Heading>
           <p className="mt-3 text-muted-foreground">
             A hand-picked vehicle, immaculately kept and driven by a professional. Every seat comes
             with the little touches that make the journey feel effortless.

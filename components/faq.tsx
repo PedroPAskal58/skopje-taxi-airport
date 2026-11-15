@@ -6,6 +6,10 @@ const faqs = [
     a: 'Just message us on WhatsApp, Viber, or call — send your flight number, arrival time, number of passengers and destination. We confirm your booking and fixed price right away.',
   },
   {
+    q: 'Is there Uber or Bolt in Skopje?',
+    a: 'No — Uber and Bolt do not operate in Skopje or North Macedonia. Instead, book a private transfer with us on WhatsApp, Viber or by phone and get a fixed price upfront, with your driver waiting when you land.',
+  },
+  {
     q: 'Where will the driver meet me at Skopje Airport?',
     a: 'Your driver waits in the arrivals hall holding a name sign. We track your flight, so even if it is early or delayed, your driver will be there when you land.',
   },
@@ -59,15 +63,15 @@ const faqs = [
   },
 ]
 
-export function Faq() {
+export function Faq({ headingLevel: Heading = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
   return (
     <section id="faq" className="bg-background">
       <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-gold">Good to know</p>
-          <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground md:text-4xl">
+          <Heading className="mt-2 font-serif text-3xl font-semibold text-foreground md:text-4xl">
             Frequently Asked Questions
-          </h2>
+          </Heading>
         </div>
 
         <div className="mt-10 divide-y divide-border rounded-2xl border border-border bg-card">

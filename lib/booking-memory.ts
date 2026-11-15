@@ -5,7 +5,7 @@ import useSWR, { mutate } from 'swr'
 import { getPickupTimestamp } from '@/lib/booking-time'
 import { createBooking, markWhatsAppOpened, markWhatsAppSent } from '@/app/actions/bookings'
 import type { BookingDetails, BookingRecord } from '@/lib/booking-validation'
-import { celebrateBooking } from '@/components/leaf-celebration'
+import { celebrateBooking } from '@/components/booking-celebration'
 
 export type SavedBooking = BookingRecord
 

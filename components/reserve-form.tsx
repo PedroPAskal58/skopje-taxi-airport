@@ -33,9 +33,9 @@ import { PickupPointChoice } from '@/components/pickup-point-choice'
 import { saveBooking } from '@/lib/booking-memory'
 
 const vehicleImages: Record<VehicleSlug, string> = {
-  mondeo: '/images/fleet-mondeo.png',
-  kia: '/images/fleet-kia.png',
-  van: '/images/fleet-van.png',
+  mondeo: '/images/fleet-mondeo.webp',
+  kia: '/images/fleet-kia.webp',
+  van: '/images/fleet-van.webp',
 }
 
 type Subject =
@@ -130,7 +130,7 @@ export function ReserveForm({
         label: 'custom transfer',
         title: 'Custom Transfer Request',
         subtitle: 'Tailor-made private ride',
-        image: '/images/transfer-airport.png',
+        image: '/images/transfer-airport.webp',
       }
     : customTour
     ? {
@@ -138,7 +138,7 @@ export function ReserveForm({
         label: 'custom tour',
         title: 'Custom Tour Request',
         subtitle: 'Tailor-made day trip',
-        image: '/images/tour-matka.png',
+        image: '/images/tour-matka.webp',
       }
     : tour
       ? (() => {

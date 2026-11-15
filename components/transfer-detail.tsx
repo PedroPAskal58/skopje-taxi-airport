@@ -8,9 +8,17 @@ import { Itinerary } from '@/components/itinerary'
 import { getTransferTagStyle } from '@/lib/transfer-tags'
 import { hasPickupPointChoice } from '@/lib/transfers'
 import { PickupChoiceBadge, PickupChoiceCallout } from '@/components/pickup-choice-badge'
+import { isSkiTransfer, skiTransfers } from '@/lib/ski-transfers'
+import { getGuideForTransfer } from '@/lib/guides'
 
 export function TransferDetail({ transfer }: { transfer: Transfer }) {
-  const otherTransfers = transfers.filter((t) => t.slug !== transfer.slug).slice(0, 3)
+  const ski = isSkiTransfer(transfer)
+  const related: Transfer[] = ski ? skiTransfers : transfers
+  const guide = getGuideForTransfer(transfer)
+  const otherTransfers = related.filter((t) => t.slug !== transfer.slug).slice(0, 3)
+  const listing = ski
+    ? { href: '/ski-transfers', label: 'All ski transfers', more: 'More ski transfers' }
+    : { href: '/transfers', label: 'All transfers', more: 'More transfers' }
 
   return (
     <article>
@@ -26,10 +34,10 @@ export function TransferDetail({ transfer }: { transfer: Transfer }) {
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/70 to-background/20" />
         <div className="mx-auto flex min-h-[420px] max-w-4xl flex-col justify-end px-6 pb-10 pt-28 md:min-h-[480px]">
           <Link
-            href="/transfers"
+            href={listing.href}
             className="mb-6 inline-flex items-center gap-1.5 self-start rounded-full bg-background/80 px-3 py-1.5 text-sm font-medium text-foreground backdrop-blur transition hover:bg-background"
           >
-            <ArrowLeft className="size-4" aria-hidden="true" /> All transfers
+            <ArrowLeft className="size-4" aria-hidden="true" /> {listing.label}
           </Link>
           <span
             className={`self-start rounded-full px-3 py-1 text-xs font-semibold ring-1 ${getTransferTagStyle(transfer.tag)}`}
@@ -38,6 +46,7 @@ export function TransferDetail({ transfer }: { transfer: Transfer }) {
           </span>
           <h1 className="mt-3 text-balance font-serif text-4xl font-semibold leading-tight text-foreground md:text-5xl">
             {transfer.from} <span className="text-gold">to</span> {transfer.to}
+                {ski ? ' Ski Transfer' : ' Transfer'}
           </h1>
           <p className="mt-3 max-w-2xl text-pretty leading-relaxed text-muted-foreground md:text-lg">
             {transfer.description}
@@ -90,6 +99,15 @@ export function TransferDetail({ transfer }: { transfer: Transfer }) {
                 <li key={note}>{note}</li>
               ))}
             </ul>
+            {guide && (
+              <Link
+                href={`/guides/${guide.slug}`}
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground underline underline-offset-4 transition hover:text-gold"
+              >
+                {ski ? 'Read our winter guide' : 'Read the full guide'}: {guide.title}{' '}
+                <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
+              </Link>
+            )}
           </section>
         </div>
 
@@ -119,7 +137,7 @@ export function TransferDetail({ transfer }: { transfer: Transfer }) {
 
       <section className="border-t border-border bg-secondary/50">
         <div className="mx-auto max-w-4xl px-6 pb-32 pt-14 md:py-14">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">More transfers</h2>
+          <h2 className="font-serif text-2xl font-semibold text-foreground">{listing.more}</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {otherTransfers.map((t) => (
               <Link

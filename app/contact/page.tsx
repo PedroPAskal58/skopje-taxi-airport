@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { MapPin } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { ContactMethods } from '@/components/contact-methods'
 import { ContactForm } from '@/components/contact-form'
 
-export const metadata: Metadata = {
-  title: 'Contact | Skopje Airport Taxi',
+export const metadata: Metadata = pageMetadata({
+  title: 'Contact Skopje Airport Taxi – WhatsApp, Viber, Phone 24/7',
   description:
-    'Contact Skopje Airport Taxi 24/7 by WhatsApp, Viber, phone or email. Ask about airport transfers, day tours and prices across Macedonia.',
-}
+    'Contact Skopje Airport Taxi 24/7 by WhatsApp, Viber, phone or email. Ask about Skopje Airport transfers, Skopje to Ohrid prices and day tours.',
+  path: '/contact',
+})
 
 export default function ContactPage() {
   return (

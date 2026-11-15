@@ -11,13 +11,16 @@ export const site = {
   reviewCount: 67,
   // Google review link. Replace PLACE_ID with your Google Business Profile place ID
   // so this opens the "write a review" dialog directly on your listing.
-  googleReviewUrl: 'https://search.google.com/local/writereview?placeid=PLACE_ID',
+  googleReviewUrl: 'https://g.page/r/CU8BIX2UQFVhEAI/review',
 }
 
 export const nav = [
   { label: 'Tours', href: '/tours' },
   { label: 'Transfers', href: '/transfers' },
+  { label: 'Ski Transfers', href: '/ski-transfers' },
   { label: 'Routes', href: '/routes' },
+  { label: 'Why us', href: '/why-us' },
+  { label: 'Guides', href: '/guides' },
   { label: 'Fleet', href: '/fleet' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Reviews', href: '/reviews' },
@@ -67,10 +70,6 @@ export type TourSlug =
   | 'bigorski-mavrovo-naum'
   | 'tetovo-ohrid-bitola'
   | 'tetovo-ohrid-naum'
-  | 'autumn-mavrovo'
-  | 'autumn-kratovo-kuklica'
-
-export const autumnTourSlugs: ReadonlySet<TourSlug> = new Set(['autumn-mavrovo', 'autumn-kratovo-kuklica'])
 
 export type ItineraryStop = {
   title: string
@@ -81,6 +80,7 @@ export type Tour = {
   slug: TourSlug
   tag: string
   title: string
+  metaTitle?: string
   description: string
   price: number
   duration: string
@@ -103,7 +103,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 110,
     duration: '~7 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-matka.png',
+    image: '/images/tour-matka.webp',
     alt: 'Emerald green Matka Canyon with a boat on the water near Skopje',
     about:
       'Just outside Skopje, Matka is one of the oldest canyons in the region and home to Vrelo Cave — one of the deepest underwater caves in Europe. You ride the cable car up Mount Vodno to the towering Millennium Cross, stop at the medieval Church of St. Panteleimon, then descend to the emerald waters of the canyon for a relaxed walk, optional boat ride and lunch by the lake.',
@@ -133,7 +133,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 230,
     duration: '6–7 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-stobi.png',
+    image: '/images/tour-stobi.webp',
     alt: 'Ancient Roman ruins and columns at the Stobi archaeological site',
     about:
       'A full day through ancient Macedonia. Stobi was a thriving Roman city where you walk among mosaic floors, a preserved amphitheatre and early Christian basilicas. Then on to Heraclea Lyncestis near Bitola, founded by Philip II of Macedon, famous for its stunning floor mosaics and Roman theatre. A relaxed, story-rich day for anyone who loves history.',
@@ -163,7 +163,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 120,
     duration: '4–5 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-kokino.png',
+    image: '/images/tour-kokino.webp',
     alt: 'Kokino megalithic observatory rock formations on a mountain plateau',
     about:
       'Kokino is a 3,800-year-old megalithic observatory that NASA ranked among the oldest in the world. Set on a volcanic hilltop about 90 km from Skopje, its carved stone markers were used by Bronze Age people to track the sun and moon. The views over the surrounding valleys are unforgettable — a short, scenic drive with a genuine sense of discovery.',
@@ -186,14 +186,15 @@ export const tours: Record<TourSlug, Tour> = {
   },
   ohrid: {
     slug: 'ohrid',
-    tag: 'Transfer',
-    title: 'Skopje to Ohrid — Private Transfer & Day Trip',
+    tag: 'Day Trip',
+    title: 'Ohrid Day Trip from Skopje',
+    metaTitle: 'Ohrid Day Trip from Skopje',
     description:
       "Discover Ohrid's UNESCO heritage, Byzantine churches and one of Europe's oldest lakes on a fully private day trip with a professional driver.",
     price: 200,
     duration: '10–12 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-ohrid.png',
+    image: '/images/tour-ohrid.webp',
     alt: 'Lake Ohrid with the Church of St. John at Kaneo',
     about:
       'Ohrid is the jewel of Macedonia — a UNESCO World Heritage town on the shore of one of the oldest and deepest lakes in Europe, over three million years old. Wander the cobbled old town, visit the iconic Church of St. John at Kaneo perched above the water, explore the hilltop Samuel\u2019s Fortress and the ancient theatre, and enjoy free time by the lake. Your private driver handles the scenic ~170 km journey each way so you can simply relax and take it in.',
@@ -225,7 +226,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 80,
     duration: '~5 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-matka-village.png',
+    image: '/images/tour-matka-village.webp',
     alt: 'Stone houses of a traditional Macedonian village below a hillside church',
     about:
       'A slower, more local take on the Matka area. Start high above Skopje at the Church of St. Panteleimon, whose 1164 frescoes are among the most important in Byzantine art, then wind down to the village of Gorno Nerezi — stone houses, quiet lanes and a village café for Turkish coffee. Finish at Matka Canyon with free time for a walk along the water or a boat ride.',
@@ -254,7 +255,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 60,
     duration: '~3 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-matka-boat.png',
+    image: '/images/tour-matka-boat.webp',
     alt: 'Boat approaching a cave entrance on emerald water in Matka Canyon',
     about:
       'The quickest way to see Matka. Your driver takes you the 25-minute drive from Skopje, waits while you explore at your own pace, then brings you straight back. Take the boat to Vrelo Cave with its stalactite halls, walk the cliffside trail to St. Andrew\u2019s Monastery, or simply sit with a drink on the water.',
@@ -283,7 +284,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 180,
     duration: '8–10 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-prizren.png',
+    image: '/images/tour-prizren.webp',
     alt: 'Prizren old town with an Ottoman stone bridge and mosque minaret',
     about:
       'Two cities in another country, in one day. Cross into Kosovo to Pristina — see the Newborn monument, the National Library\u2019s striking domes and the lively Mother Teresa boulevard. Then continue to Prizren, the country\u2019s cultural capital, with its Ottoman stone bridge, Sinan Pasha Mosque and a climb to the fortress for views over the red roofs.',
@@ -312,7 +313,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 240,
     duration: '~12 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-mavrovo.png',
+    image: '/images/tour-mavrovo.webp',
     alt: 'Half-submerged church of St. Nicholas in Mavrovo Lake',
     about:
       'The great western loop through Mavrovo National Park. Stop at the half-flooded Church of St. Nicholas rising from Mavrovo Lake, continue down the Radika gorge to Bigorski Monastery and its legendary carved iconostasis, then drive on to the southern tip of Lake Ohrid for the springs and peacocks of St. Naum.',
@@ -341,7 +342,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 240,
     duration: '~12 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-tetovo.png',
+    image: '/images/tour-tetovo.webp',
     alt: 'Colourful painted walls of the Painted Mosque in Tetovo',
     about:
       'Three cities, three characters. Begin in Tetovo at the Šarena Džamija — the Painted Mosque covered in floral panels. Spend the middle of the day in Ohrid\u2019s old town and on the lake, then finish in Bitola, the "city of consuls", walking the café-lined Shirok Sokak as the evening comes alive.',
@@ -370,7 +371,7 @@ export const tours: Record<TourSlug, Tour> = {
     price: 240,
     duration: '~12 hours',
     pax: 'Up to 4 passengers',
-    image: '/images/tour-naum.png',
+    image: '/images/tour-naum.webp',
     alt: 'Saint Naum Monastery beside turquoise spring water on Lake Ohrid',
     about:
       'The lake lover\u2019s version of the western day. After the Painted Mosque in Tetovo, enjoy Ohrid\u2019s old town, then follow the shoreline south to St. Naum — a 10th-century monastery where peacocks roam and a rowboat glides you through the clear springs that feed the lake.',
@@ -390,73 +391,8 @@ export const tours: Record<TourSlug, Tour> = {
     important:
       'A long ~12-hour day. Rowboat at St. Naum is paid on site. Maximum 4 passengers per booking. No tour guide — private driver transportation only.',
   },
-  'autumn-mavrovo': {
-    slug: 'autumn-mavrovo',
-    tag: 'Autumn Tour',
-    title: 'Autumn Colours — Mavrovo National Park & Galičnik',
-    description:
-      'A seasonal day trip through golden beech forests, Mavrovo Lake and the mountain village of Galičnik when the park is at its most colourful.',
-    price: 150,
-    duration: '~8 hours',
-    pax: 'Up to 4 passengers',
-    image: '/images/tour-autumn.png',
-    alt: 'Golden and red autumn forests around Mavrovo Lake in North Macedonia',
-    about:
-      'From October to early November, Mavrovo National Park turns gold, orange and red. Drive through the Radika valley with stops at scenic viewpoints, walk the shore of Mavrovo Lake to the half-submerged Church of St. Nicholas, and climb to Galičnik, a stone village high in the mountains known for its traditional architecture. Finish with a warm lunch of local cheese, lamb and mountain tea before the drive back to Skopje.',
-    highlights: [
-      'Peak autumn foliage in Mavrovo National Park',
-      'Half-submerged Church of St. Nicholas on Mavrovo Lake',
-      'Traditional stone village of Galičnik on the mountain',
-      'Photo stops along the Radika river gorge',
-      'Warm mountain lunch with local specialities',
-    ],
-    itinerary: [
-      { title: 'Pickup — Your location in Skopje', text: 'Comfortable start from ~8:30 AM' },
-      { title: 'Scenic drive west', text: 'About 1h30 through the Polog valley into the park' },
-      { title: 'Mavrovo Lake & St. Nicholas', text: 'Lakeside walk among the autumn colours' },
-      { title: 'Radika gorge viewpoints', text: 'Photo stops along the river' },
-      { title: 'Galičnik village', text: 'Stone houses and mountain views' },
-      { title: 'Mountain lunch', text: 'Local cheese, lamb and mountain tea (own arrangement)' },
-      { title: 'Drop-off — Return to Skopje', text: 'Arrives back in the late afternoon' },
-    ],
-    important:
-      'Seasonal tour, best from October to early November. It can be cold in the mountains, so bring warm layers and comfortable shoes. No tour guide — private driver transportation only.',
-  },
-  'autumn-kratovo-kuklica': {
-    slug: 'autumn-kratovo-kuklica',
-    tag: 'Autumn Tour',
-    title: 'Autumn in Kratovo & the Stone Dolls of Kuklica',
-    description:
-      'A relaxed private day to the old crater-town of Kratovo and the surreal Kuklica stone dolls, framed by golden autumn hills. No hiking, everything is reached by car.',
-    price: 220,
-    duration: '6–8 hours',
-    pax: 'Up to 4 passengers',
-    image: '/images/tour-kratovo-kuklica.png',
-    alt: 'Kuklica stone doll rock formations surrounded by golden autumn trees near Kratovo',
-    about:
-      'Kratovo sits inside the crater of an extinct volcano, with medieval stone bridges over its river and old Ottoman defence towers rising between the houses. In autumn the hills around the town turn amber and rust, which makes it a calm, cosy place to wander and stop for a Turkish coffee. Nearby, the Kuklica valley holds more than a hundred natural rock pillars. Local legend says they are a wedding party turned to stone. In the low autumn light the formations glow warm and brown, perfect for photos. It is an easy day: no hiking, short walks only, and everything is reached by car.',
-    highlights: [
-      'Kratovo, an old town built inside a volcanic crater',
-      'Medieval stone bridges and Ottoman defence towers',
-      'Kuklica, over 100 natural "stone doll" rock pillars',
-      'The local legend of the petrified wedding party',
-      'Golden autumn hills and soft light for photos',
-      'Easy day, no hiking, everything reached by car',
-    ],
-    itinerary: [
-      { title: 'Pickup — Your location in Skopje', text: 'Departure around 8:30 AM' },
-      { title: 'Autumn drive northeast', text: 'About 110 km, ~1h45 through the colouring hills' },
-      { title: 'Kratovo old town', text: 'Stone bridges, Ottoman towers and a coffee break' },
-      { title: 'Kuklica — the Stone Dolls', text: 'Short walk among the rock formations and the local legend' },
-      { title: 'Drop-off — Return to Skopje', text: 'Back between 2:00 and 4:00 PM' },
-    ],
-    important:
-      'Price is per car for up to 4 people. Best from October to early November, bring a warm layer and comfortable shoes. Kuklica entrance fee, if any, is paid on site. No tour guide — private driver transportation only.',
-  },
 }
 
-export const tourList = Object.values(tours).sort(
-  (a, b) => Number(autumnTourSlugs.has(b.slug)) - Number(autumnTourSlugs.has(a.slug)),
-)
+export const tourList = Object.values(tours)
 
-export { transfers, getTransfer, type Transfer } from './transfers'
+export { transfers, allTransfers, getTransfer, type Transfer } from './transfers'

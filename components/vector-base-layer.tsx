@@ -7,16 +7,16 @@ import '@maplibre/maplibre-gl-leaflet'
 import { setWorkerUrl, type LayerSpecification, type StyleSpecification } from 'maplibre-gl'
 import { useMap } from 'react-leaflet'
 
-const STYLE_URL = 'https://tiles.openfreemap.org/styles/dark'
+const STYLE_URL = 'https://tiles.openfreemap.org/styles/positron'
 
 // The bundler can't resolve MapLibre's separate worker file, so it is served from /public.
 setWorkerUrl('/vendor/maplibre-gl-worker.mjs')
 
-const LAND = '#1a1d24'
-const WATER = '#0e1015'
-const ROAD = '#2a2e37'
-const BORDER = '#3a3f4b'
-const GREEN = '#1e2129'
+const LAND = '#f1f5fa'
+const WATER = '#bcd8f1'
+const ROAD = '#c9d4e2'
+const BORDER = '#8fa3bf'
+const GREEN = '#e2edf0'
 
 function withPaint(layer: LayerSpecification, paint: Record<string, string>): LayerSpecification {
   return { ...layer, paint: { ...(layer.paint ?? {}), ...paint } } as LayerSpecification

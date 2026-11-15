@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { TourDetail } from '@/components/tour-detail'
 import { site, tourList, tours, type TourSlug } from '@/lib/site'
+import { fitTitle, pageMetadata } from '@/lib/seo'
 
 function getTour(slug: string) {
   return slug in tours ? tours[slug as TourSlug] : undefined
@@ -21,18 +22,18 @@ export async function generateMetadata({
   const { slug } = await params
   const tour = getTour(slug)
   if (!tour) return {}
-  return {
-    title: `${tour.title} | Private Tour from Skopje`,
+  return pageMetadata({
+    title:
+      tour.metaTitle ??
+      fitTitle(
+        `${tour.title} | Private Tour from Skopje`,
+        tour.title.includes('Skopje') ? tour.title : `${tour.title} | Skopje Tour`,
+        tour.title,
+      ),
     description: tour.description,
-    alternates: { canonical: `/tours/${tour.slug}` },
-    openGraph: {
-      title: tour.title,
-      description: tour.description,
-      url: `/tours/${tour.slug}`,
-      images: [{ url: tour.image, alt: tour.alt }],
-      type: 'website',
-    },
-  }
+    path: `/tours/${tour.slug}`,
+    image: { url: tour.image, alt: tour.alt },
+  })
 }
 
 function tourJsonLd(tour: NonNullable<ReturnType<typeof getTour>>) {

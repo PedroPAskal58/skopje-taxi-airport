@@ -5,9 +5,9 @@ import { Briefcase, Check, Clock, Users } from 'lucide-react'
 import { vehicles, type VehicleSlug } from '@/lib/site'
 
 const vehicleImages: Record<VehicleSlug, string> = {
-  mondeo: '/images/fleet-mondeo.png',
-  kia: '/images/fleet-kia.png',
-  van: '/images/fleet-van.png',
+  mondeo: '/images/fleet-mondeo.webp',
+  kia: '/images/fleet-kia.webp',
+  van: '/images/fleet-van.webp',
 }
 
 const vehicleOrder: VehicleSlug[] = ['mondeo', 'kia', 'van']

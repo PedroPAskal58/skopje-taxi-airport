@@ -78,7 +78,7 @@ export function HeroSearch({ transfers, tours }: { transfers: TransferOption[]; 
     <form
       onSubmit={handleSubmit}
       aria-label="Find your transfer or tour"
-      className="overflow-hidden rounded-2xl border border-gold/25 bg-card text-card-foreground shadow-2xl shadow-background/60"
+      className="overflow-hidden rounded-2xl border border-gold/25 bg-card text-card-foreground shadow-2xl shadow-primary/15"
     >
       <div className="flex items-center justify-between gap-4 border-b border-border px-5">
         <div role="tablist" aria-label="Booking type" className="flex gap-6">

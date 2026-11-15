@@ -29,19 +29,19 @@ const reviews = [
   },
 ]
 
-export function Reviews() {
+export function Reviews({ headingLevel: Heading = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
   return (
     <section id="reviews" className="border-y border-border bg-secondary/50">
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-gold">Reviews</p>
-          <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground md:text-4xl">
+          <Heading className="mt-2 font-serif text-3xl font-semibold text-foreground md:text-4xl">
             Loved by Travellers
-          </h2>
+          </Heading>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2">
             <span className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="size-4 fill-gold text-gold" aria-hidden="true" />
+                <Star key={i} className="size-4 fill-star text-star" aria-hidden="true" />
               ))}
             </span>
             <span className="text-sm font-semibold text-foreground">{site.rating}</span>
@@ -63,9 +63,12 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal-stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review) => (
-            <figure key={review.name} className="flex flex-col rounded-2xl border border-border bg-card p-6">
+            <figure
+              key={review.name}
+              className="flex flex-col rounded-2xl border border-border bg-card p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-lg"
+            >
               <Quote className="size-7 text-gold/50" aria-hidden="true" />
               <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-foreground">
                 {review.text}

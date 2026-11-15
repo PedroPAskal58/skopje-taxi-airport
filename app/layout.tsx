@@ -1,68 +1,73 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Manrope, Fraunces } from 'next/font/google'
+import { ScrollReveal } from '@/components/scroll-reveal'
+import { BookingCelebration } from '@/components/booking-celebration'
+import { site } from '@/lib/site'
 import './globals.css'
 
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  display: 'swap',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-=======
   metadataBase: new URL(site.url),
-  title: 'Skopje Airport Taxi & Transfers | Fixed Prices 24/7',
+  title: 'Skopje Airport Taxi & Transfers | Skopje to Ohrid €140 Fixed Price',
   description:
-    'Book your Skopje Airport taxi online. Fixed prices to Skopje city center, Ohrid, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
-    metadataBase: new URL('https://www.skopjetaxiairport.com'),
+    'Book your Skopje Airport taxi online. Skopje to Ohrid €140, fixed prices to Skopje city center, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
+  applicationName: site.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
   openGraph: {
-    title: 'Skopje Airport Taxi & Transfers | Fixed Prices 24/7',
-    description: 'Book your Skopje Airport taxi online. Fixed prices to Skopje city center, Ohrid, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
+    title: 'Skopje Airport Taxi & Transfers | Skopje to Ohrid €140 Fixed Price',
+    description: 'Book your Skopje Airport taxi online. Skopje to Ohrid €140, fixed prices to Skopje city center, Thessaloniki & Pristina. English-speaking drivers, flight tracking, 24/7.',
     url: '/',
-    siteName: 'Skopje Taxi Airport',
-    images: [{ url: '/og-image-v2.png', width: 1024, height: 1024 }],
+    siteName: site.name,
+    images: [{ url: '/og-image.png', width: 1024, height: 1024 }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image-v2.png'],
+    images: ['/og-image.png'],
   },
   keywords: [
     'Skopje airport taxi',
     'Skopje airport transfer',
     'Macedonia airport transfer',
     'Skopje to Ohrid transfer',
+    'Skopje Ohrid transfer',
+    'Skopje to Ohrid taxi',
+    'Skopje to Ohrid price',
+    'Skopje Airport to Ohrid',
     'private transfer Skopje',
     'SKP taxi',
+    'ski transfer Skopje',
+    'Skopje to Bansko transfer',
+    'Uber Skopje',
+    'Bolt Skopje',
+    'Uber Skopje airport',
+    'Uber alternative Skopje',
   ],
-  generator: 'v0.app',
   icons: {
     icon: '/icon.png',
     apple: '/icon.png',
->>>>>>> 04edc908ff119e7df020a5e4dcd47874657cba5b
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#f6f9fd',
 }
 
 export default function RootLayout({
@@ -71,9 +76,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" suppressHydrationWarning className={`light bg-background ${manrope.variable} ${fraunces.variable}`}>
+      <body className="antialiased font-sans">
+        <div className="scroll-progress" aria-hidden="true" />
         {children}
+        <ScrollReveal />
+        <BookingCelebration />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

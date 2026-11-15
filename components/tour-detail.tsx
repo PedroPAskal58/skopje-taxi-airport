@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Check, Clock, Tag, Users } from 'lucide-react'
-import { autumnTourSlugs, site, tourList, type Tour } from '@/lib/site'
+import { ArrowLeft, ArrowRight, BookOpen, Check, Clock, Tag, Users } from 'lucide-react'
+import { site, tourList, type Tour } from '@/lib/site'
+import { getGuideForTour } from '@/lib/guides'
 import { MobileBookingBar } from '@/components/mobile-booking-bar'
 import { RouteSection } from '@/components/route-section'
 import { Itinerary } from '@/components/itinerary'
@@ -9,11 +10,11 @@ import { tourStops } from '@/lib/route-places'
 
 export function TourDetail({ tour }: { tour: Tour }) {
   const otherTours = tourList.filter((t) => t.slug !== tour.slug).slice(0, 3)
-  const themeClass = autumnTourSlugs.has(tour.slug) ? 'theme-autumn' : undefined
+  const guide = getGuideForTour(tour)
 
   return (
     <article>
-      <header className={`relative isolate overflow-hidden ${themeClass ?? ''}`}>
+      <header className="relative isolate overflow-hidden">
         <Image src={tour.image} alt={tour.alt} fill priority sizes="100vw" className="-z-10 object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/70 to-background/20" />
         <div className="mx-auto flex min-h-[420px] max-w-4xl flex-col justify-end px-6 pb-10 pt-28 md:min-h-[480px]">
@@ -35,7 +36,7 @@ export function TourDetail({ tour }: { tour: Tour }) {
         </div>
       </header>
 
-      <div className={`mx-auto grid max-w-4xl gap-10 px-6 pb-20 md:grid-cols-[1fr_280px] ${themeClass ?? ''}`}>
+      <div className="mx-auto grid max-w-4xl gap-10 px-6 pb-20 md:grid-cols-[1fr_280px]">
         <div className="min-w-0">
           <dl className="grid grid-cols-3 gap-3 rounded-2xl border border-border bg-card p-4">
             <Stat icon={<Clock className="size-4" aria-hidden="true" />} label="Duration" value={tour.duration} />
@@ -65,6 +66,23 @@ export function TourDetail({ tour }: { tour: Tour }) {
           </section>
 
           <Itinerary steps={tour.itinerary} important={tour.important} />
+
+          {guide && (
+            <section className="mt-10 rounded-2xl border border-gold/25 bg-gold/5 p-6">
+              <h2 className="flex items-center gap-2 font-semibold text-foreground">
+                <BookOpen className="size-5 text-gold" aria-hidden="true" /> Travel guide
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Still planning? Our guide covers distances, drive times and practical tips for this trip.
+              </p>
+              <Link
+                href={`/guides/${guide.slug}`}
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground underline underline-offset-4 transition hover:text-gold"
+              >
+                Read the guide: {guide.title} <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
+              </Link>
+            </section>
+          )}
         </div>
 
         <aside className="md:sticky md:top-24 md:self-start">
@@ -121,13 +139,11 @@ export function TourDetail({ tour }: { tour: Tour }) {
         </div>
       </section>
 
-      <div className={themeClass}>
-        <MobileBookingBar
-          href={`/reserve?tour=${tour.slug}`}
-          label="Book this tour"
-          priceLabel={`From €${tour.price}`}
-        />
-      </div>
+      <MobileBookingBar
+        href={`/reserve?tour=${tour.slug}`}
+        label="Book this tour"
+        priceLabel={`From €${tour.price}`}
+      />
     </article>
   )
 }

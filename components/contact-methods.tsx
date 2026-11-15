@@ -1,5 +1,6 @@
 import { ArrowUpRight, Clock, Mail, MessageCircle, Phone, PhoneCall } from 'lucide-react'
 import { site } from '@/lib/site'
+import { SocialLinks } from '@/components/social-links'
 
 const secondary = [
   { icon: Phone, label: 'Call us', note: 'Any hour, any day', value: site.phoneDisplay, href: site.phoneHref },
@@ -66,6 +67,22 @@ export function ContactMethods() {
           <span className="text-sm font-medium text-gold">24 / 7</span>
         </li>
       </ul>
+
+      <section
+        aria-labelledby="contact-socials"
+        className="flex flex-col gap-4 rounded-3xl border border-border bg-card p-6"
+      >
+        <div>
+          <h2 id="contact-socials" className="text-sm font-semibold text-foreground">
+            Follow our trips
+          </h2>
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+            Routes, winter roads and day tours on Instagram, TikTok, YouTube and Facebook. For bookings,
+            WhatsApp is still the fastest.
+          </p>
+        </div>
+        <SocialLinks />
+      </section>
     </div>
   )
 }

@@ -42,13 +42,13 @@ export function Comfort() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div data-reveal-stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map(({ icon: Icon, title, text }) => (
             <div
               key={title}
-              className="rounded-2xl border border-border bg-card p-6 transition hover:border-gold/60 hover:bg-card/80"
+              className="group rounded-2xl border border-border bg-card p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-lg"
             >
-              <span className="grid size-11 place-items-center rounded-xl bg-gold/15 text-gold ring-1 ring-gold/20">
+              <span className="grid size-11 place-items-center rounded-xl bg-gold/15 text-gold ring-1 ring-gold/20 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
               <h3 className="mt-4 font-semibold text-foreground">{title}</h3>

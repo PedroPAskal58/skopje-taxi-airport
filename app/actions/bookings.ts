@@ -8,7 +8,8 @@ import { bookings } from '@/lib/db/schema'
 import { expireStaleWhatsAppBookings } from '@/lib/db/expire-whatsapp'
 import { getPickupTimestamp } from '@/lib/booking-time'
 import { validateBookingDetails, type BookingRecord } from '@/lib/booking-validation'
-import { tourList, transfers, vehicles } from '@/lib/site'
+import { tourList, allTransfers, vehicles } from '@/lib/site'
+import { notifyNewBooking } from '@/lib/telegram'
 
 const COOKIE = 'sat-guest-bookings'
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
@@ -52,7 +53,7 @@ function serviceTitle(key: string, car: string) {
   if (key === 'transfer:custom') return 'Custom transfer'
   if (key === `car:${car}`) return vehicles[car].name
   const tour = tourList.find(t => `tour:${t.slug}` === key)
-  const transfer = transfers.find(t => `transfer:${t.slug}` === key)
+  const transfer = allTransfers.find(t => `transfer:${t.slug}` === key)
   if (!tour && !transfer) throw new Error('Please choose a valid tour or transfer.')
   return tour?.title ?? transfer!.route
 }
@@ -87,6 +88,7 @@ export async function createBooking(input: unknown) {
       if (retry) return { booking: serialize(retry) }
       return { error: 'Request could not be saved. Please reload and try again.' }
     }
+    await notifyNewBooking(row)
     return { booking: serialize(row) }
   } catch { return { error: 'We could not save your request. Please try again; no confirmation has been issued.' } }
 }

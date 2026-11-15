@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 
 const destinations = transfers.filter((transfer) => places[transfer.to])
 
-export function RouteExplorer() {
+export function RouteExplorer({ headingLevel: Heading = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
   const [selectedSlug, setSelectedSlug] = useState('skopje-ohrid')
   const transfer = destinations.find((item) => item.slug === selectedSlug) ?? destinations[0]
   const fromName = 'Skopje Airport'
@@ -21,9 +21,9 @@ export function RouteExplorer() {
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-gold">Route map</p>
-          <h2 className="mt-2 text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
+          <Heading className="mt-2 text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
             See Exactly Where You&apos;re Going
-          </h2>
+          </Heading>
           <p className="mt-3 text-pretty text-muted-foreground">
             Pick a destination to see the road your driver will take, from the arrivals hall to your door.
           </p>

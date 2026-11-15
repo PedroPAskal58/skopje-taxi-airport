@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import { PlaneTakeoff, Mail, Phone, MessageCircle, MapPin } from 'lucide-react'
 import { site, footerNav } from '@/lib/site'
+import { SocialLinks } from '@/components/social-links'
+import { SnowBuildup } from '@/components/snow-buildup'
 
 export function SiteFooter() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="relative bg-primary text-primary-foreground">
+      <SnowBuildup className="snow-buildup-edge" />
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2.5">
@@ -24,6 +27,8 @@ export function SiteFooter() {
             <MapPin className="size-4 text-gold" aria-hidden="true" />
             Skopje International Airport (SKP), North Macedonia
           </p>
+          <h3 className="mt-6 text-sm font-semibold uppercase tracking-wide text-gold">Follow us</h3>
+          <SocialLinks tone="dark" className="mt-3" />
         </div>
 
         <div>
@@ -36,6 +41,11 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/uber-skopje" className="text-primary-foreground/75 transition hover:text-primary-foreground">
+                Uber &amp; Bolt in Skopje?
+              </Link>
+            </li>
           </ul>
         </div>
 

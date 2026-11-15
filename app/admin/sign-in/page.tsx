@@ -21,7 +21,7 @@ function SignInForm() {
     await signOut().catch(() => {})
     const result = await signIn.email({ email: String(form.get('email')).trim(), password: String(form.get('password')) })
     if (result.error) {
-      setError(result.error.code === 'INVALID_EMAIL_OR_PASSWORD' ? 'Wrong email or password. Please try again.' : `Sign-in failed: ${result.error.message ?? 'please try again.'}`)
+      setError(result.error.code === 'INVALID_EMAIL_OR_PASSWORD' ? 'Wrong email or password. If this is your first time, create the administrator account below first.' : `Sign-in failed: ${result.error.message ?? 'please try again.'}`)
       setBusy(false)
       return
     }

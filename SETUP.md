@@ -5,6 +5,7 @@
 3. In **Settings → Vars**, add:
    - `BETTER_AUTH_SECRET`: any long random string (`openssl rand -base64 32`).
    - `ADMIN_EMAILS` (optional): comma-separated admin emails.
+   - `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` (optional): get a Telegram message for every new booking.
 4. Open `/admin/sign-up` and create your account, then sign in at `/admin/sign-in`.
 
 The app creates its tables (`user`, `session`, `account`, `verification`, `bookings`) the first time the server starts. You do not need to run any SQL.
