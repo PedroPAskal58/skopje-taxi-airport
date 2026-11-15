@@ -740,3 +740,251 @@
     animation: none;
   }
 }
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(115deg, oklch(0.92 0.08 95), oklch(0.78 0.14 78) 55%, oklch(0.68 0.13 62));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gold-hairline {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(0.82 0.125 85 / 0.5) 20%,
+      oklch(0.82 0.125 85 / 0.5) 80%,
+      transparent
+    );
+  }
+  .luxury-glow {
+    box-shadow: 0 1px 0 0 oklch(1 0 0 / 0.05) inset, 0 30px 70px -30px oklch(0 0 0 / 0.75),
+      0 0 0 1px oklch(0.82 0.125 85 / 0.12);
+  }
+  .hero-vignette {
+    background:
+      radial-gradient(120% 90% at 15% 20%, transparent 40%, oklch(0.13 0.015 265 / 0.85) 100%),
+      linear-gradient(90deg, oklch(0.14 0.015 265) 0%, oklch(0.15 0.015 265 / 0.7) 45%, transparent 80%);
+  }
+}
+
+/* Intro: on the first visit a plane flies bottom to top, wiping the splash away behind it */
+.plane-intro {
+  animation: intro-done 0s linear 2.9s 1 forwards;
+}
+
+.intro-seen .plane-intro {
+  display: none;
+}
+
+.plane-sweep {
+  animation: plane-sweep 2.6s cubic-bezier(0.45, 0, 0.25, 1) 0.2s 1 both;
+  will-change: transform;
+}
+
+.plane-edge {
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  box-shadow: 0 0 24px 4px color-mix(in oklch, var(--gold) 45%, transparent);
+}
+
+.plane-trail {
+  background: linear-gradient(to top, transparent, oklch(1 0 0 / 0.75));
+  border-radius: 9999px;
+}
+
+@keyframes plane-sweep {
+  from {
+    transform: translate3d(0, 10rem, 0);
+  }
+  to {
+    transform: translate3d(0, calc(-100vh - 20rem), 0);
+  }
+}
+
+@keyframes intro-done {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Route map */
+.route-map {
+  background: #111318;
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+.route-map .route-base {
+  filter: brightness(0.62) contrast(1.15) saturate(0.6);
+}
+
+  .route-map .route-city {
+  pointer-events: none;
+  }
+
+  .route-map .route-city-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgb(255 255 255 / 0.55);
+  text-shadow: 0 0 3px #111318, 0 0 6px #111318;
+  }
+
+.route-controls {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 12px 12px 0 0 !important;
+  border-radius: 10px;
+  background: rgb(24 27 34 / 0.92);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.route-controls button + button {
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.route-pin {
+  background: none;
+  border: 0;
+}
+
+.route-pin-svg {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  filter: drop-shadow(0 3px 6px rgb(0 0 0 / 0.5));
+}
+
+.route-pin-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 34px;
+  height: 14px;
+  translate: -50% 0;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at center, rgb(245 197 66 / 0.55), rgb(245 197 66 / 0) 70%);
+}
+
+.route-pin-label {
+  position: absolute;
+  left: 34px;
+  top: 7px;
+  white-space: nowrap;
+  padding: 5px 11px;
+  border-radius: 8px;
+  background: rgb(20 22 28 / 0.92);
+  border: 1px solid rgb(255 255 255 / 0.06);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.45);
+}
+
+.route-tooltip.leaflet-tooltip {
+  background: rgb(20 22 28 / 0.92);
+  color: #ffffff;
+  border: 1px solid rgb(255 255 255 / 0.06);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.45);
+}
+
+.route-tooltip.leaflet-tooltip-right::before {
+  border-right-color: rgb(20 22 28 / 0.92);
+}
+
+.route-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: route-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+}
+
+.route-car {
+  background: none;
+  border: 0;
+}
+
+.route-car-badge {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: #f5c542;
+  color: #14171f;
+  border: 2px solid #14171f;
+  box-shadow: 0 0 0 6px rgb(245 197 66 / 0.22), 0 4px 12px rgb(0 0 0 / 0.5);
+}
+
+@keyframes route-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.falling-leaves {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.falling-leaf {
+  position: absolute;
+  top: -48px;
+  width: var(--leaf-size);
+  height: var(--leaf-size);
+  opacity: 0;
+  animation-name: leaf-fall;
+  animation-timing-function: cubic-bezier(0.35, 0.1, 0.55, 1);
+  animation-fill-mode: forwards;
+}
+
+.falling-leaf[data-tone='0'] {
+  color: var(--gold);
+}
+
+.falling-leaf[data-tone='1'] {
+  color: oklch(0.62 0.16 45);
+}
+
+.falling-leaf[data-tone='2'] {
+  color: oklch(0.52 0.15 30);
+}
+
+@keyframes leaf-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  10% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate3d(calc(var(--leaf-drift) * -0.4), 50vh, 0) rotate(calc(var(--leaf-spin) * 0.5));
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--leaf-drift), 105vh, 0) rotate(var(--leaf-spin));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plane-intro,
+  .falling-leaves {
+    display: none;
+  }
+}
